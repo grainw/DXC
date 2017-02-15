@@ -61,12 +61,15 @@ hist = model.fit(x, y, batch_size=5, nb_epoch=100, shuffle=True,verbose=0,valida
 #plot prediction data  
 # out = model.predict(x)
 out = model.predict(x, batch_size=5, verbose=0)
-# print '#####################'
-# print out
+print '#####################'
+print out
 print '#####################'
 # print model.summary()
 print model.get_weights()
+# print model.save_weights("../data/weights.txt")
 print '#####################'
+df = pd.DataFrame(out)
+df.to_excel('../data/out_nn.xlsx')
 # print model.metrics
 # print model.get_config()
 
